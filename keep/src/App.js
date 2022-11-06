@@ -18,6 +18,7 @@ function App(props) {
 
   function deleteNotes(id) {
     setNotes((preValue) => {
+      localStorage.removeItem(id);
       return [...preValue.filter((note, index) => index !== id)];
     });
   }
