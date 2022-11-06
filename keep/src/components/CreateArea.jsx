@@ -9,7 +9,13 @@ function CreateArea({ onAdd }) {
     title: "",
     content: "",
   });
-
+  
+  function allStorage() {
+    var keys = Object.keys(localStorage),
+    totalItems = keys.length;
+    return totalItems;
+  }
+  
   function handleChange(e) {
     const { name, value } = e.target;
     setNote((preValue) => {
@@ -29,6 +35,8 @@ function CreateArea({ onAdd }) {
       title: "",
       content: "",
     });
+    var items = allStorage();
+    localStorage.setItem(items+1, JSON.stringify(note));
     event.preventDefault();
   }
 
